@@ -2,22 +2,20 @@ package services;
 
 import java.security.InvalidParameterException;
 
-public class UsaInterestService {
+public class UsaInterestService implements InterestRate{
 	
 	private double interestRate;
 
 	public UsaInterestService(double interestRate) {
 		this.interestRate = interestRate;
 	}
-
+	
+	@Override
 	public double getInterestRate() {
 		return interestRate;
 	}
-
-	public void setInterestRate(double interestRate) {
-		this.interestRate = interestRate;
-	}
 	
+	@Override
 	public double payment(double amount, int months) {
 		if(months<1) {
 			throw new InvalidParameterException("Months must be greater than zero");
